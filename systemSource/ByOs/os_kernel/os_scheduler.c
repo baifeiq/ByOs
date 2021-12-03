@@ -20,8 +20,8 @@
   #error device not specified!
 #endif
 
-extern void tTaskRunFirst(void);    //Interface of running the first task, which is define in os_context.s
-extern void trigerPendSVC(void);    //Interface of creatting the PendSVC interrupt, which is define in os_context.s
+extern void os_tTaskRunFirst(void);    //Interface of running the first task, which is define in os_context.s
+extern void os_trigerPendSVC(void);    //Interface of creatting the PendSVC interrupt, which is define in os_context.s
 
 
 // #define NVIC_INT_CTRL			0xE000ED04
@@ -42,7 +42,7 @@ void taskIdle(void *param)
 }
 
 
-uint32_t _osEnterCritical(void)
+uint32_t os_enter_critical(void)
 {
     uint32_t os_PRIMASK = __get_PRIMASK ();
 
@@ -53,40 +53,40 @@ uint32_t _osEnterCritical(void)
 }
 
 
-void _osQuitCritical(uint32_t os_PRIMASK)
+void os_quit_critical(uint32_t os_PRIMASK)
 {
     //ARMCM4 CMSIS API
     __set_PRIMASK (os_PRIMASK);
 }
 
 
-void _tTaskSchedEnable()
+void ost_sched_enable()
 {
-    uint32_t os_PRIMASK = _osEnterCritical();
+    uint32_t os_PRIMASK = os_enter_critical();
 
     if (TaskSchedLock < 255)
     {
         TaskSchedLock++;
     }
     
-    _osQuitCritical(os_PRIMASK );
+    os_quit_critical(os_PRIMASK );
 }
 
 
-void _tTaskSchedDisable()
+void ost_sched_disable()
 {
-    uint32_t os_PRIMASK = _osEnterCritical();
+    uint32_t os_PRIMASK = os_enter_critical();
 
     if (TaskSchedLock > 0)
     {
         TaskSchedLock--;
         if (0 == TaskSchedLock)
         {
-            _tTaskSched();
+            os_sched();
         }
     }
 
-    _osQuitCritical(os_PRIMASK);
+    os_quit_critical(os_PRIMASK);
 }
 
 //tTask *currentTask asm("ScurrentTask");       //gcc
@@ -161,13 +161,13 @@ void trigerPendSVC(void)
  	MEM32(NVIC_INT_CTRL)	=	NVIC_PENDSVSET;
 }*/
 
-void _tTaskSched(void)
+void os_sched(void)
 {
-    uint32_t os_PRIMASK = _osEnterCritical();
+    uint32_t os_PRIMASK = os_enter_critical();
 
     if (TaskSchedLock > 0)
     {
-        _osQuitCritical(os_PRIMASK);
+        os_quit_critical(os_PRIMASK);
         return;
     }
 
@@ -178,22 +178,22 @@ void _tTaskSched(void)
 
     //2.This method reduces the CPU consumption of switching interrupts and stacking. 
     //  Task switching should reduce the consumption of CPU
-    nextTask = taskTable[GetTaskOderPro(TaskOder)]; 
+    nextTask = taskTable[os_get_oder_pro(TaskOder)]; 
     
     if (currentTask != nextTask)
     {
-        trigerPendSVC();
+        os_trigerPendSVC();
     }    
 
-    _osQuitCritical(os_PRIMASK);
+    os_quit_critical(os_PRIMASK);
 }
 
-void _tTaskRunFirst(void)
+void ost_startup_init(void)
 {
-    _tTaskInit(&tTaskIdle, taskIdle, (void *)0x33333333, OS_TASK_MAX, &tTaskIdleEnv[1024/4]);
+    ost_init(&tTaskIdle, taskIdle, (void *)0x33333333, OS_TASK_MAX, &tTaskIdleEnv[1024/4]);
     
     //
-    _taskOrderLink_Init(&tTaskIdle);
+    os_order_link_init(&tTaskIdle);
 
     //__set_PSP(0);             //CMSIS
     // asm("MOV r0, #0");       //gcc, iar
@@ -209,20 +209,20 @@ void _tTaskRunFirst(void)
 
     //2.This method reduces the CPU consumption of switching interrupts and stacking. 
     //  Task switching should reduce the consumption of CPU
-    nextTask = taskTable[GetTaskOderPro(TaskOder)]; 
+    nextTask = taskTable[os_get_oder_pro(TaskOder)]; 
 
-    tTaskRunFirst();
+    os_tTaskRunFirst();
 }
 
 
-int osScheduler(void)
+int os_scheduler(void)
 {
 	tTask *p_count_task;
 
-	unsigned int count_node = _taskOrderLink.count_node;
+	unsigned int count_node = t_order_link.count_node;
 
-	_NULL_CHECK(_taskOrderLink.head_node);
-    p_count_task = _taskOrderLink.head_node->next_node;
+	_NULL_CHECK(t_order_link.head_node);
+    p_count_task = t_order_link.head_node->next_node;
     _NULL_CHECK(p_count_task);
 	
 	do
@@ -232,8 +232,8 @@ int osScheduler(void)
         if (!p_count_task->timer)
         {
             p_count_task->status = OS_READY;
-            SetBit(p_count_task->pro);
-            _tOutputLink(p_count_task);            
+            os_set_bit(p_count_task->pro);
+            os_output_link(p_count_task);            
         }
 
 		p_count_task = p_count_task->next_node;
@@ -241,7 +241,7 @@ int osScheduler(void)
 
 	}while(--count_node);
 
-	_tTaskSched();
+	os_sched();
 	return 0;
 }
 

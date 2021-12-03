@@ -14,8 +14,8 @@
         PUBLIC PendSV_Handler
         PUBLIC SysTick_Handler
         PUBLIC InitRAM
-        PUBLIC tTaskRunFirst
-        PUBLIC trigerPendSVC
+        PUBLIC os_tTaskRunFirst
+        PUBLIC os_trigerPendSVC
         SECTION osContext:CODE(2)
 
         THUMB
@@ -47,9 +47,9 @@ PendSVHander_nosave
         BX LR
      
 SysTick_Handler
-        IMPORT osScheduler
+        IMPORT os_scheduler
         PUSH {LR}
-        BL osScheduler
+        BL os_scheduler
         POP {LR}
         NOP
         BX LR
@@ -75,11 +75,11 @@ NVIC_PENDSVSET		EQU	0x10000000
 NVIC_SYSPRI2		EQU	0xE000ED22
 NVIC_PENDSV_PRI		EQU	0x000000FF
 
-tTaskRunFirst
+os_tTaskRunFirst
         MOV r0, #0
         MSR PSP, r0
 
-trigerPendSVC
+os_trigerPendSVC
         MOV r0, #NVIC_PENDSV_PRI
         MOV32 r1, #NVIC_SYSPRI2
         ;MOVW r1, #0xED22

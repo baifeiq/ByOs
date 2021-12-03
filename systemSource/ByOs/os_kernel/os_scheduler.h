@@ -1,14 +1,14 @@
-#ifndef __SWITCH_H__
-#define __SWITCH_H__
+#ifndef SWITCH_H__
+#define SWITCH_H__
 #include "os_config.h"
 
 extern tTask *currentTask;
 extern tTask *nextTask;
 
-extern void _tTaskRunFirst(void);
-extern void _tTaskSched(void);
+extern void ost_startup_init(void);
+extern void os_sched(void);
 
-extern uint32_t _osEnterCritical(void);
-extern void _osQuitCritical(uint32_t os_PRIMASK);
+extern uint32_t os_enter_critical(void);
+extern void os_quit_critical(uint32_t os_PRIMASK);
 
-#endif  //__SWITCH_H__
+#endif  //SWITCH_H__

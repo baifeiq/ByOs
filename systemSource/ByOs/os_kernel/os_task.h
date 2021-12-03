@@ -1,5 +1,5 @@
-#ifndef	__OS_TASK_H__
-#define __OS_TASK_H__
+#ifndef	OS_TASK_H__
+#define OS_TASK_H__
 
 #include "os_type.h"
 
@@ -27,14 +27,14 @@ extern tTask *taskTable[OS_TASK_MAX + 1];  //OS_TASK_MAX is user's task num, 1 i
 
 extern uint32_t TaskOder;
 
-extern void SetBit(uint8_t numBit);
-extern void ResetBit(uint8_t numBit);
-extern uint8_t GetTaskOderPro(uint32_t value);
+extern void os_set_bit(uint8_t numBit);
+extern void os_reset_bit(uint8_t numBit);
+extern uint8_t os_get_oder_pro(uint32_t value);
 // extern tTask *GetnextTask(void);
 
-extern void _taskDelay(unsigned int ms);
-extern int8_t _tTaskInit(tTask *task, void (*entry)(void *), void *param, uint8_t Pro, tTaskStack *stack);
+extern void ost_delay(unsigned int ms);
+extern int8_t ost_init(tTask *task, void (*entry)(void *), void *param, uint8_t Pro, tTaskStack *stack);
 
 
-#endif	//__OS_TASK_H__
+#endif	//OS_TASK_H__
 

@@ -10,29 +10,29 @@
 #include "os_task.h"
 #include "os_tasklink.h"
 
-Task_Order_Link_t _taskOrderLink=
+task_order_link_t t_order_link=
 {
     .head_node = _NULL,
     .count_node    = 0,
 };
 
-void _taskOrderLink_Init(tTask * _task)
+void os_order_link_init(tTask * _task)
 {
     if (_NULL != _task)
     {
-        _taskOrderLink.head_node = _task;
-        _taskOrderLink.head_node->last_node = _task;
-        _taskOrderLink.head_node->next_node = _task;
+        t_order_link.head_node = _task;
+        t_order_link.head_node->last_node = _task;
+        t_order_link.head_node->next_node = _task;
     }
 }
 
-int _tInputLink(tTask * _task)
+int os_input_link(tTask * _task)
 {
     _NULL_CHECK(_task);
-    _NULL_CHECK(_taskOrderLink.head_node);
+    _NULL_CHECK(t_order_link.head_node);
 
-    tTask *p_next_node = _taskOrderLink.head_node->next_node;
-    tTask *p_head_node = _taskOrderLink.head_node;
+    tTask *p_next_node = t_order_link.head_node->next_node;
+    tTask *p_head_node = t_order_link.head_node;
 
     p_head_node->next_node = _task;
     p_next_node->last_node = _task;
@@ -40,15 +40,15 @@ int _tInputLink(tTask * _task)
     _task->next_node = p_next_node;
     _task->last_node = p_head_node;
 
-    _taskOrderLink.count_node++;
+    t_order_link.count_node++;
 
     return 0;
 }
 
-int _tOutputLink(tTask * _task)
+int os_output_link(tTask * _task)
 {
     _NULL_CHECK(_task);
-    _NULL_CHECK(_taskOrderLink.head_node);
+    _NULL_CHECK(t_order_link.head_node);
 
     tTask *p_last_node = _task->last_node;
     tTask *p_next_node = _task->next_node;
@@ -58,7 +58,7 @@ int _tOutputLink(tTask * _task)
 
     _task->last_node = _task->next_node = _task;
 
-    _taskOrderLink.count_node--;
+    t_order_link.count_node--;
 
     return 0;
 }

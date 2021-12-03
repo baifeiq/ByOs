@@ -38,19 +38,19 @@ static const uint8_t TaskOderBit[256] =
 };
 
 
-void SetBit(uint8_t numBit)
+void os_set_bit(uint8_t numBit)
 {
 	TaskOder |= (0x01 << numBit);
 }
 
 
-void ResetBit(uint8_t numBit)
+void os_reset_bit(uint8_t numBit)
 {
 	TaskOder &= ~(0x01 << numBit);
 }
 
 
-uint8_t GetTaskOderPro(uint32_t value)
+uint8_t os_get_oder_pro(uint32_t value)
 {
 	if (0 == value)
 		return OS_TASK_MAX;
@@ -68,7 +68,7 @@ uint8_t GetTaskOderPro(uint32_t value)
 }
 
 
-int8_t _tTaskInit(tTask *task, void (*entry)(void *), void *param, uint8_t Pro, tTaskStack *stack)
+int8_t ost_init(tTask *task, void (*entry)(void *), void *param, uint8_t Pro, tTaskStack *stack)
 {
 	_NULL_CHECK(task);
 	_NULL_CHECK(stack);
@@ -103,21 +103,21 @@ int8_t _tTaskInit(tTask *task, void (*entry)(void *), void *param, uint8_t Pro, 
 
 	taskTable[Pro] = task;
 	
-	SetBit(Pro);
+	os_set_bit(Pro);
 
 	return 0;
 }
 
 
-void _taskDelay(unsigned int ms)
+void ost_delay(unsigned int ms)
 {
 	currentTask->timer = ms;
 	currentTask->status = OS_ORDER;
 	//ResetBit(GetTaskOderPro(TaskOder));
-    ResetBit(currentTask->pro);
+    os_reset_bit(currentTask->pro);
 
-	_tInputLink(currentTask);
-	_tTaskSched();
+	os_input_link(currentTask);
+	os_sched();
 }
 
 

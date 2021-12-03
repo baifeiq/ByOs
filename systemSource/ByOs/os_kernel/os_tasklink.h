@@ -1,17 +1,17 @@
-#ifndef __OS_TASKLINK_H__
-#define __OS_TASKLINK_H__
+#ifndef OS_TASKLINK_H__
+#define OS_TASKLINK_H__
 
 #include "os_task.h"
 
-typedef struct Task_Order_Link_t
+typedef struct task_order_link_t
 {
 	tTask *head_node;
 	unsigned int count_node;
-}Task_Order_Link_t;
+}task_order_link_t;
 
-extern Task_Order_Link_t _taskOrderLink;
+extern task_order_link_t t_order_link;
 
-extern int _tInputLink(tTask * _task);
-extern int _tOutputLink(tTask * _task);
-extern void _taskOrderLink_Init(tTask * _task);
-#endif //__OS_TASKLINK_H__
+extern int os_input_link(tTask * _task);
+extern int os_output_link(tTask * _task);
+extern void os_order_link_init(tTask * _task);
+#endif //OS_TASKLINK_H__

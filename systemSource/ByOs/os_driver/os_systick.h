@@ -1,7 +1,7 @@
-#ifndef	__OS_SYSTICK_H__
-#define __OS_SYSTICK_H__
+#ifndef	OS_SYSTICK_H__
+#define OS_SYSTICK_H__
 
 
 extern void SysTickInit(void);
 
-#endif //__OS_SYSTICK_H__
+#endif //OS_SYSTICK_H__

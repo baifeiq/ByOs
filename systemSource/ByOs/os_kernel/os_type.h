@@ -1,5 +1,5 @@
-#ifndef __OS_TYPE_H__
-#define __OS_TYPE_H__
+#ifndef OS_TYPE_H__
+#define OS_TYPE_H__
 
 #ifndef _NULL
 #define _NULL                (void *)(0x0)
@@ -24,5 +24,5 @@ typedef signed long long     int64_t;
 typedef unsigned long long   uint64_t;
 
 
-#endif /* __OS_TYPE_H__ */
+#endif /* OS_TYPE_H__ */
 

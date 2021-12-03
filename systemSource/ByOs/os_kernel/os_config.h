@@ -1,5 +1,5 @@
-#ifndef __OS_CONFIG_H__
-#define __OS_CONFIG_H__
+#ifndef OS_CONFIG_H__
+#define OS_CONFIG_H__
 
 
-#endif  //__OS_CONFIG_H__
+#endif  //OS_CONFIG_H__

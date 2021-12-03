@@ -47,17 +47,17 @@ void task30(void *param);
 
 int UserTaskInit(void)
 {
-	_tTaskInit(&tTask0, task0, (void *)0x00000000, 0, &tTask0Env[1024/4]);
-	_tTaskInit(&tTask1, task1, (void *)0x11111111, 1, &tTask1Env[1024/4]);
-	_tTaskInit(&tTask2, task2, (void *)0x22222222, 2, &tTask2Env[1024/4]);
-	_tTaskInit(&tTask3, task3, (void *)0x33333333, 3, &tTask3Env[1024/4]);
-	_tTaskInit(&tTask4, task4, (void *)0x44444444, 4, &tTask4Env[1024/4]);
-	_tTaskInit(&tTask5, task5, (void *)0x55555555, 5, &tTask5Env[1024/4]);
-	_tTaskInit(&tTask6, task6, (void *)0x66666666, 6, &tTask6Env[1024/4]);
-	_tTaskInit(&tTask30, task30, (void *)0x66666666, 30, &tTask30Env[1024/4]);
+	ost_init(&tTask0, task0, (void *)0x00000000, 0, &tTask0Env[1024/4]);
+	ost_init(&tTask1, task1, (void *)0x11111111, 1, &tTask1Env[1024/4]);
+	ost_init(&tTask2, task2, (void *)0x22222222, 2, &tTask2Env[1024/4]);
+	ost_init(&tTask3, task3, (void *)0x33333333, 3, &tTask3Env[1024/4]);
+	ost_init(&tTask4, task4, (void *)0x44444444, 4, &tTask4Env[1024/4]);
+	ost_init(&tTask5, task5, (void *)0x55555555, 5, &tTask5Env[1024/4]);
+	ost_init(&tTask6, task6, (void *)0x66666666, 6, &tTask6Env[1024/4]);
+	ost_init(&tTask30, task30, (void *)0x66666666, 30, &tTask30Env[1024/4]);
 
-     SysTickInit();
-	_tTaskRunFirst();
+    SysTickInit();
+	ost_startup_init();
 	
 	return 0;
 }
@@ -67,7 +67,7 @@ void task0(void *param)
 {
 	while(1)
 	{
- 		_taskDelay(50);
+ 		ost_delay(50);
 	}
 }
 
@@ -75,7 +75,7 @@ void task1(void *param)
 {
 	while(1)
 	{
-		_taskDelay(100);
+		ost_delay(100);
 	} 
 }
 
@@ -83,7 +83,7 @@ void task2(void *param)
 {
 	while(1)
 	{
-		_taskDelay(200);
+		ost_delay(200);
 	} 
 }
 
@@ -91,7 +91,7 @@ void task3(void *param)
 {
 	while(1)
 	{
-		_taskDelay(300);
+		ost_delay(300);
 	} 
 }
 
@@ -99,7 +99,7 @@ void task4(void *param)
 {
 	while(1)
 	{
-		_taskDelay(400);
+		ost_delay(400);
 	} 
 }
 
@@ -108,7 +108,7 @@ void task5(void *param)
 	while(1)
 	{
 //        Cy_GPIO_Inv(USER_LED_PORT, USER_LED_PIN);
-		_taskDelay(500);
+		ost_delay(500);
 	} 
 }
 
@@ -116,7 +116,7 @@ void task6(void *param)
 {
 	while(1)
 	{
-		_taskDelay(600);
+		ost_delay(600);
 	} 
 }
 
@@ -124,7 +124,7 @@ void task30(void *param)
 {
 	while(1)
 	{
- 		_taskDelay(10);
+ 		ost_delay(10);
 	} 	
 }
 
