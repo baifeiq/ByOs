@@ -1,0 +1,110 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\training\ByOs\systemSource\ByOs\os_driver\os_systick.c -xcl_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.xcl -macro_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.tmp -icc_path "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = F$:\training\ByOs\systemSource\ByOs\os_driver\os_systick.c -D ARMCM4 -D _RTE_ -o F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\Obj\ByOs\os_driver --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device/ARM/ARMCM4/Include\ -I F$:\training\ByOs\workplaceIAR_9.10.2\Project\RTE\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I F$:\training\ByOs\systemSource\ByOs\os_driver\ -I F$:\training\ByOs\systemSource\ByOs\os_kernel\ -I F$:\training\ByOs\systemSource\ByOs\ -I F$:\training\ByOs\systemSource\userSource\ -On -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\Core\Include\\" -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\DSP\Include\\" --predef_macros F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.tmp
+  rspfile_name = F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.xcl.rsp
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\training\ByOs\systemSource\ByOs\os_kernel\os_scheduler.c -xcl_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.xcl -macro_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.tmp -icc_path "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = F$:\training\ByOs\systemSource\ByOs\os_kernel\os_scheduler.c -D ARMCM4 -D _RTE_ -o F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\Obj\ByOs\os_kernel --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device/ARM/ARMCM4/Include\ -I F$:\training\ByOs\workplaceIAR_9.10.2\Project\RTE\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I F$:\training\ByOs\systemSource\ByOs\os_driver\ -I F$:\training\ByOs\systemSource\ByOs\os_kernel\ -I F$:\training\ByOs\systemSource\ByOs\ -I F$:\training\ByOs\systemSource\userSource\ -On -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\Core\Include\\" -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\DSP\Include\\" --predef_macros F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.tmp
+  rspfile_name = F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.xcl.rsp
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\training\ByOs\systemSource\ByOs\os_kernel\os_task.c -xcl_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.xcl -macro_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.tmp -icc_path "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = F$:\training\ByOs\systemSource\ByOs\os_kernel\os_task.c -D ARMCM4 -D _RTE_ -o F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\Obj\ByOs\os_kernel --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device/ARM/ARMCM4/Include\ -I F$:\training\ByOs\workplaceIAR_9.10.2\Project\RTE\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I F$:\training\ByOs\systemSource\ByOs\os_driver\ -I F$:\training\ByOs\systemSource\ByOs\os_kernel\ -I F$:\training\ByOs\systemSource\ByOs\ -I F$:\training\ByOs\systemSource\userSource\ -On -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\Core\Include\\" -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\DSP\Include\\" --predef_macros F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.tmp
+  rspfile_name = F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.xcl.rsp
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\training\ByOs\systemSource\ByOs\os_kernel\os_tasklink.c -xcl_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.xcl -macro_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.tmp -icc_path "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = F$:\training\ByOs\systemSource\ByOs\os_kernel\os_tasklink.c -D ARMCM4 -D _RTE_ -o F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\Obj\ByOs\os_kernel --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device/ARM/ARMCM4/Include\ -I F$:\training\ByOs\workplaceIAR_9.10.2\Project\RTE\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I F$:\training\ByOs\systemSource\ByOs\os_driver\ -I F$:\training\ByOs\systemSource\ByOs\os_kernel\ -I F$:\training\ByOs\systemSource\ByOs\ -I F$:\training\ByOs\systemSource\userSource\ -On -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\Core\Include\\" -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\DSP\Include\\" --predef_macros F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.tmp
+  rspfile_name = F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.xcl.rsp
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\training\ByOs\systemSource\ByOs\os_example.c -xcl_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.xcl -macro_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.tmp -icc_path "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = F$:\training\ByOs\systemSource\ByOs\os_example.c -D ARMCM4 -D _RTE_ -o F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\Obj\ByOs --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device/ARM/ARMCM4/Include\ -I F$:\training\ByOs\workplaceIAR_9.10.2\Project\RTE\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I F$:\training\ByOs\systemSource\ByOs\os_driver\ -I F$:\training\ByOs\systemSource\ByOs\os_kernel\ -I F$:\training\ByOs\systemSource\ByOs\ -I F$:\training\ByOs\systemSource\userSource\ -On -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\Core\Include\\" -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\DSP\Include\\" --predef_macros F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.tmp
+  rspfile_name = F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.xcl.rsp
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\RTE\Device\ARMCM4\system_ARMCM4.c -xcl_file "F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.xcl" -macro_file "F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.tmp" -icc_path "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = F$:\training\ByOs\workplaceIAR_9.10.2\Project\RTE\Device\ARMCM4\system_ARMCM4.c -D ARMCM4 -D _RTE_ -o "F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\Obj\CMSIS-Pack\Device$ Startup" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device/ARM/ARMCM4/Include\ -I F$:\training\ByOs\workplaceIAR_9.10.2\Project\RTE\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I F$:\training\ByOs\systemSource\ByOs\os_driver\ -I F$:\training\ByOs\systemSource\ByOs\os_kernel\ -I F$:\training\ByOs\systemSource\ByOs\ -I F$:\training\ByOs\systemSource\userSource\ -On -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\Core\Include\\" -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\DSP\Include\\" --predef_macros "F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.tmp"
+  rspfile_name = F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.xcl.rsp
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\training\ByOs\systemSource\userSource\main.c -xcl_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.xcl -macro_file F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.tmp -icc_path "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = F$:\training\ByOs\systemSource\userSource\main.c -D ARMCM4 -D _RTE_ -o F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\Obj\userSource --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device/ARM/ARMCM4/Include\ -I F$:\training\ByOs\workplaceIAR_9.10.2\Project\RTE\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\CMSIS\Core\Include\ -I C$:/Users/白飞强/IAR-CMSIS-Packs/ARM/CMSIS/5.8.0/\Device\ARM\ARMCM4\Include\ -I F$:\training\ByOs\systemSource\ByOs\os_driver\ -I F$:\training\ByOs\systemSource\ByOs\os_kernel\ -I F$:\training\ByOs\systemSource\ByOs\ -I F$:\training\ByOs\systemSource\userSource\ -On -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\Core\Include\\" -I "D$:\ProgramIDE\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\CMSIS\DSP\Include\\" --predef_macros F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.tmp
+  rspfile_name = F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.xcl.rsp
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.pbi : INDEXER F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.xcl |  $
+F$:\training\ByOs\systemSource\ByOs\os_driver\os_systick.c
+  flags = -out=F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.pbi -f F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.xcl
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.pbi : INDEXER F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.xcl |  $
+F$:\training\ByOs\systemSource\ByOs\os_kernel\os_scheduler.c
+  flags = -out=F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.pbi -f F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.xcl
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.pbi : INDEXER F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.xcl |  $
+F$:\training\ByOs\systemSource\ByOs\os_kernel\os_task.c
+  flags = -out=F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.pbi -f F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.xcl
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.pbi : INDEXER F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.xcl |  $
+F$:\training\ByOs\systemSource\ByOs\os_kernel\os_tasklink.c
+  flags = -out=F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.pbi -f F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.xcl
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.pbi : INDEXER F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.xcl |  $
+F$:\training\ByOs\systemSource\ByOs\os_example.c
+  flags = -out=F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.pbi -f F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.xcl
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.pbi : INDEXER F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.xcl |  $
+F$:\training\ByOs\workplaceIAR_9.10.2\Project\RTE\Device\ARMCM4\system_ARMCM4.c
+  flags = "-out=F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.pbi" -f "F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.xcl"
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.pbi : INDEXER F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.xcl |  $
+F$:\training\ByOs\systemSource\userSource\main.c
+  flags = -out=F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.pbi -f F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.xcl
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project.pbw : MAKEBROWSE F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project.pbd
+  flags = F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project.pbd -output F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project.pbw
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part0.pbi : PDBLINK F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.pbi |  $
+F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.pbi $
+F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.pbi
+  flags = -M F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part0.pbi F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_driver\os_systick.pbi F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_scheduler.pbi F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_task.pbi
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part1.pbi : PDBLINK F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.pbi |  $
+F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.pbi $
+F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.pbi
+  flags = -M F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part1.pbi F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_kernel\os_tasklink.pbi F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\ByOs\os_example.pbi "F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\CMSIS-Pack\Device$ Startup\system_ARMCM4.pbi"
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part2.pbi : PDBLINK F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.pbi
+  flags = -M F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part2.pbi F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\userSource\main.pbi
+
+build F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project.pbd : PDBLINK F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part0.pbi |  $
+F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part1.pbi $
+F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part2.pbi
+  flags = -M F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project.pbd F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part0.pbi F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part1.pbi F$:\training\ByOs\workplaceIAR_9.10.2\Project\Debug\BrowseInfo\Project_part2.pbi
+

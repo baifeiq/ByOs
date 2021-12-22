@@ -3,6 +3,8 @@
         "os_task.h": "c",
         "os_scheduler.h": "c",
         "os_type.h": "c",
-        "os_tasklink.h": "c"
-    }
+        "os_tasklink.h": "c",
+        "os_example.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

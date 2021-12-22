@@ -1,0 +1,99 @@
+# ninja log v5
+174	1189	6602446648590886	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/main.o	f831733c03226952
+71	976	6602446646480413	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_scheduler.o	86e11f9e9a0768a9
+56	748	6602446644159892	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_tasklink.o	dff34e67b7dbfef
+44	797	6602446644319932	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_systick.o	3087847b42a53ca3
+17	655	6602446643269690	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/system_ARMCM4.o	c6b12cc02f7bee81
+33	162	6602446637448381	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_context.o	df5bccd4a1cd4212
+3	198	6602446637188320	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/startup_ARMCM4.o	eb2cb8cf7d047d17
+86	1006	6602446646540426	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_task.o	b37e7ae9446b554b
+2	148	6508933704853035	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/os_example.o	7b4d525801da5e32
+2810	4070	6531988591292825	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/List/Project.map	a2a18a37f329025f
+5	283	6531988634855277	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Exe/Project.out	1c78e18eafe7740d
+105	1051	6602446646980525	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_example.o	f44d71b04840445b
+17	119	6602446951429451	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/startup_ARMCM4.o	eb2cb8cf7d047d17
+4	193	6602446951309274	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_context.o	df5bccd4a1cd4212
+28	570	6602446956500439	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_systick.o	3087847b42a53ca3
+51	698	6602446957810700	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_tasklink.o	dff34e67b7dbfef
+63	833	6602446959161020	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_example.o	f44d71b04840445b
+40	874	6602446959361077	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/system_ARMCM4.o	c6b12cc02f7bee81
+77	978	6602446960631546	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_task.o	b37e7ae9446b554b
+139	1039	6602446961231681	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/main.o	f831733c03226952
+91	1084	6602446961551585	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_scheduler.o	86e11f9e9a0768a9
+3	165	6602447023867067	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/startup_ARMCM4.o	eb2cb8cf7d047d17
+36	202	6602447024167127	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_context.o	df5bccd4a1cd4212
+17	717	6602447030478547	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/system_ARMCM4.o	c6b12cc02f7bee81
+50	767	6602447030738606	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_systick.o	3087847b42a53ca3
+63	908	6602447032368978	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_example.o	f44d71b04840445b
+78	977	6602447033039123	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_task.o	b37e7ae9446b554b
+102	1031	6602447033519234	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_tasklink.o	dff34e67b7dbfef
+183	1184	6602447035149600	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/main.o	f831733c03226952
+132	1236	6602447035539686	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_scheduler.o	86e11f9e9a0768a9
+4	118	6602447740401225	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_context.o	df5bccd4a1cd4212
+18	148	6602447740571304	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/startup_ARMCM4.o	eb2cb8cf7d047d17
+29	567	6602447745592387	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_systick.o	3087847b42a53ca3
+45	788	6602447747802895	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/system_ARMCM4.o	c6b12cc02f7bee81
+56	892	6602447748823326	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_example.o	f44d71b04840445b
+69	947	6602447749393258	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_task.o	b37e7ae9446b554b
+98	1057	6602447750513500	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_tasklink.o	dff34e67b7dbfef
+84	1111	6602447751043827	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_scheduler.o	86e11f9e9a0768a9
+131	1189	6602447751823795	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/main.o	f831733c03226952
+4	124	6602450601306578	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_context.o	df5bccd4a1cd4212
+47	155	6602450601746707	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/startup_ARMCM4.o	eb2cb8cf7d047d17
+17	541	6602450606247684	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_systick.o	3087847b42a53ca3
+59	751	6602450608328159	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_tasklink.o	dff34e67b7dbfef
+34	802	6602450608578216	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/system_ARMCM4.o	c6b12cc02f7bee81
+73	948	6602450610238588	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_task.o	b37e7ae9446b554b
+87	1003	6602450610668673	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_example.o	f44d71b04840445b
+137	1151	6602450612339238	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/main.o	f831733c03226952
+103	1205	6602450612479102	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_scheduler.o	86e11f9e9a0768a9
+4	125	6602451107435637	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_context.o	df5bccd4a1cd4212
+47	156	6602451107845771	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/startup_ARMCM4.o	eb2cb8cf7d047d17
+17	667	6602451113597039	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/system_ARMCM4.o	c6b12cc02f7bee81
+35	734	6602451113847102	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_systick.o	3087847b42a53ca3
+58	854	6602451115487470	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_tasklink.o	dff34e67b7dbfef
+86	984	6602451116807743	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_task.o	b37e7ae9446b554b
+100	1029	6602451117147825	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_example.o	f44d71b04840445b
+72	1061	6602451117307861	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_scheduler.o	86e11f9e9a0768a9
+138	1172	6602451118688393	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/main.o	f831733c03226952
+1205	1486	6602451121889846	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Exe/Project.out	a2a18a37f329025f
+1205	1486	6602451121889846	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/List/Project.map	a2a18a37f329025f
+4	254	6602451204070912	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Exe/Project.out	1c78e18eafe7740d
+34	120	6602452931208479	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/startup_ARMCM4.o	eb2cb8cf7d047d17
+4	154	6602452930938414	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_context.o	df5bccd4a1cd4212
+17	563	6602452936099575	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_systick.o	3087847b42a53ca3
+45	687	6602452937269841	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_task.o	b37e7ae9446b554b
+56	800	6602452938419908	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_example.o	f44d71b04840445b
+97	890	6602452939370314	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_tasklink.o	dff34e67b7dbfef
+69	965	6602452940100477	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/system_ARMCM4.o	c6b12cc02f7bee81
+82	1095	6602452941420774	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_scheduler.o	86e11f9e9a0768a9
+132	1127	6602452941490791	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/main.o	f831733c03226952
+1157	1411	6602452944661503	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Exe/Project.out	a2a18a37f329025f
+1157	1411	6602452944661503	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/List/Project.map	a2a18a37f329025f
+5	127	6602454254937812	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_context.o	df5bccd4a1cd4212
+36	167	6602454255237697	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/startup_ARMCM4.o	eb2cb8cf7d047d17
+19	580	6602454260248804	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_systick.o	3087847b42a53ca3
+48	820	6602454262549335	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_scheduler.o	86e11f9e9a0768a9
+61	872	6602454263119484	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/system_ARMCM4.o	c6b12cc02f7bee81
+74	910	6602454263139472	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_example.o	f44d71b04840445b
+103	1005	6602454264509770	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_tasklink.o	dff34e67b7dbfef
+87	1050	6602454264709831	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_task.o	b37e7ae9446b554b
+146	1156	6602454266000315	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/main.o	f831733c03226952
+1185	1414	6602454268640702	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Exe/Project.out	a2a18a37f329025f
+1185	1414	6602454268640702	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/List/Project.map	a2a18a37f329025f
+4	146	6602467359165785	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_context.o	df5bccd4a1cd4212
+17	211	6602467359275809	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/startup_ARMCM4.o	eb2cb8cf7d047d17
+28	563	6602467364336949	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_systick.o	3087847b42a53ca3
+45	716	6602467365747265	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/system_ARMCM4.o	c6b12cc02f7bee81
+103	909	6602467367657696	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_example.o	f44d71b04840445b
+165	990	6602467368667924	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/main.o	f831733c03226952
+31	116	6602467799058575	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/startup_ARMCM4.o	eb2cb8cf7d047d17
+3	157	6602467798838535	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_context.o	df5bccd4a1cd4212
+17	571	6602467804059902	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_driver/os_systick.o	3087847b42a53ca3
+42	757	6602467805870154	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/CMSIS-Pack/Device Startup/system_ARMCM4.o	c6b12cc02f7bee81
+67	908	6602467807390475	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_example.o	f44d71b04840445b
+54	955	6602467807880565	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_scheduler.o	86e11f9e9a0768a9
+80	1025	6602467808550711	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_task.o	b37e7ae9446b554b
+94	1069	6602467808810777	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/ByOs/os_kernel/os_tasklink.o	dff34e67b7dbfef
+130	1184	6602467810161087	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Obj/userSource/main.o	f831733c03226952
+1218	1487	6602467813188671	F:/training/ByOs/workplaceIAR_9.10.2/Project/Debug/Exe/Project.out	1c78e18eafe7740d
