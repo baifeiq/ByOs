@@ -1,11 +1,10 @@
 /*******************************************************************************
- * @file     os_scheduler.c
- * @brief    start the first task of ByOs, and monitor the TaskOder.
- * @version  V1.0.0
- * @date     2021/07/12
- * @author   Baifeiq
- * @note     nothing
- ******************************************************************************/
+ * Copyright (c) baifeiq.
+ * 
+ * @date            @author         @brief
+ * 2021-07-12       baifeiq         First version: start the first task of ByOs, and monitor the task_oder.
+ * 2021-12-30       baifeiq         Reorganize the coding style.
+ */
 
 #include "os_task.h"
 #include "os_scheduler.h"
@@ -29,12 +28,12 @@ extern void os_trigerPendSVC(void);    //Interface of creatting the PendSVC inte
 // #define NVIC_SYSPRI2			    0xE000ED22
 // #define NVIC_PENDSV_PRI			0x000000FF
 
-tTask *currentTask;
-tTask *nextTask;
-static uint8_t TaskSchedLock;
+by_task_t *currentTask;
+by_task_t *nextTask;
+static by_uint8_t TaskSchedLock;
 
-tTask tTaskIdle;
-tTaskStack tTaskIdleEnv[1024/4];
+by_task_t tTaskIdle;
+by_uint32_t tTaskIdleEnv[1024/4];
 
 void taskIdle(void *param)
 {
@@ -42,40 +41,40 @@ void taskIdle(void *param)
 }
 
 
-uint32_t os_enter_critical(void)
+by_uint32_t os_critical_enter(void)
 {
-    uint32_t os_PRIMASK = __get_PRIMASK ();
+    by_uint32_t os_PRIMASK = __get_PRIMASK ();
 
-    //ARMCM4 CMSIS API
+    //CMSIS.5.8.0
     __disable_irq();
 
     return os_PRIMASK;
 }
 
 
-void os_quit_critical(uint32_t os_PRIMASK)
+void os_critical_quit(by_uint32_t os_PRIMASK)
 {
-    //ARMCM4 CMSIS API
+    //CMSIS.5.8.0
     __set_PRIMASK (os_PRIMASK);
 }
 
 
 void ost_sched_enable()
 {
-    uint32_t os_PRIMASK = os_enter_critical();
+    by_uint32_t os_PRIMASK = os_critical_enter();
 
     if (TaskSchedLock < 255)
     {
         TaskSchedLock++;
     }
     
-    os_quit_critical(os_PRIMASK );
+    os_critical_quit(os_PRIMASK );
 }
 
 
 void ost_sched_disable()
 {
-    uint32_t os_PRIMASK = os_enter_critical();
+    by_uint32_t os_PRIMASK = os_critical_enter();
 
     if (TaskSchedLock > 0)
     {
@@ -86,11 +85,11 @@ void ost_sched_disable()
         }
     }
 
-    os_quit_critical(os_PRIMASK);
+    os_critical_quit(os_PRIMASK);
 }
 
-//tTask *currentTask asm("ScurrentTask");       //gcc
-//tTask *nextTask asm("SnextTask");             //gcc
+//by_task_t *currentTask asm("ScurrentTask");       //gcc
+//by_task_t *nextTask asm("SnextTask");             //gcc
 
 /*  //Keil MDK
 __asm void PendSV_Handler(void)              
@@ -163,11 +162,11 @@ void trigerPendSVC(void)
 
 void os_sched(void)
 {
-    uint32_t os_PRIMASK = os_enter_critical();
+    by_uint32_t os_PRIMASK = os_critical_enter();
 
     if (TaskSchedLock > 0)
     {
-        os_quit_critical(os_PRIMASK);
+        os_critical_quit(os_PRIMASK);
         return;
     }
 
@@ -178,14 +177,14 @@ void os_sched(void)
 
     //2.This method reduces the CPU consumption of switching interrupts and stacking. 
     //  Task switching should reduce the consumption of CPU
-    nextTask = taskTable[os_get_oder_pro(TaskOder)]; 
+    nextTask = task_table[os_get_oder_pro(task_oder)]; 
     
     if (currentTask != nextTask)
     {
         os_trigerPendSVC();
     }    
 
-    os_quit_critical(os_PRIMASK);
+    os_critical_quit(os_PRIMASK);
 }
 
 void ost_startup_init(void)
@@ -209,21 +208,21 @@ void ost_startup_init(void)
 
     //2.This method reduces the CPU consumption of switching interrupts and stacking. 
     //  Task switching should reduce the consumption of CPU
-    nextTask = taskTable[os_get_oder_pro(TaskOder)]; 
+    nextTask = task_table[os_get_oder_pro(task_oder)]; 
 
     os_tTaskRunFirst();
 }
 
 
-int os_scheduler(void)
+by_int32_t os_scheduler(void)
 {
-	tTask *p_count_task;
+	by_task_t *p_count_task;
 
 	unsigned int count_node = t_order_link.count_node;
 
-	_NULL_CHECK(t_order_link.head_node);
+	OS_NULL_CHECK(t_order_link.head_node);
     p_count_task = t_order_link.head_node->next_node;
-    _NULL_CHECK(p_count_task);
+    OS_NULL_CHECK(p_count_task);
 	
 	do
 	{
@@ -232,7 +231,7 @@ int os_scheduler(void)
         if (!p_count_task->timer)
         {
             p_count_task->status = OS_READY;
-            os_set_bit(p_count_task->pro);
+            os_bit_set(p_count_task->pro);
             os_output_link(p_count_task);            
         }
 

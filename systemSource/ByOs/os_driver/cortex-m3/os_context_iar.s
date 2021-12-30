@@ -1,13 +1,10 @@
 ;/*******************************************************************************
-; * @file     osContext.s
-; * @brief    Handling the switch of ByOs system context.
-; * @version  V1.0.0
-; * @date     2021/07/12
-; * @author   Baifeiq
-; * @note     Before starting the ByOs system, make sure that the memory (heap/stack) 
-; *           has been completely initialized to 0.The initialization subroutine is 
-; *           provided here, which is named InitRAM.
-; ******************************************************************************/
+; * Copyright (c) baifeiq.
+; * 
+; * @date            @author         @brief
+; * 2021-07-12       baifeiq         First version: Handling the switch of ByOs system context.
+; * 2021-12-30       baifeiq         Reorganize the coding style
+; */
 
         MODULE osContext
 

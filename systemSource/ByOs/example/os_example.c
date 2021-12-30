@@ -1,37 +1,35 @@
 /*******************************************************************************
- * @file     os_example.c
- * @brief    This file provides Example for creating basic tasks and idle tasks in ByOs
- * @version  V1.0.0
- * @date     2021/07/12
- * @author   Baifeiq
- * @note     nothing
- ******************************************************************************/
-//#include "cy_project.h"
-//#include "cy_device_headers.h"
+ * Copyright (c) baifeiq.
+ * 
+ * @date            @author         @brief
+ * 2021-07-12       baifeiq         First version: provides example for creating basic tasks.
+ * 2021-12-30       baifeiq         Reorganize the coding style
+ */
+
 
 #include "os_example.h"
 #include "os_task.h"
 #include "os_scheduler.h"
 #include "os_systick.h"
 
-tTask tTask0;
-tTask tTask1;
-tTask tTask2;
-tTask tTask3;
-tTask tTask4;
-tTask tTask5;
-tTask tTask6;
-tTask tTask30;
+by_task_t tTask0;
+by_task_t tTask1;
+by_task_t tTask2;
+by_task_t tTask3;
+by_task_t tTask4;
+by_task_t tTask5;
+by_task_t tTask6;
+by_task_t tTask30;
 
 
-tTaskStack tTask0Env[1024/4];
-tTaskStack tTask1Env[1024/4];
-tTaskStack tTask2Env[1024/4];
-tTaskStack tTask3Env[1024/4];
-tTaskStack tTask4Env[1024/4];
-tTaskStack tTask5Env[1024/4];
-tTaskStack tTask6Env[1024/4];
-tTaskStack tTask30Env[1024/4];
+by_uint32_t tTask0Env[1024/4];
+by_uint32_t tTask1Env[1024/4];
+by_uint32_t tTask2Env[1024/4];
+by_uint32_t tTask3Env[1024/4];
+by_uint32_t tTask4Env[1024/4];
+by_uint32_t tTask5Env[1024/4];
+by_uint32_t tTask6Env[1024/4];
+by_uint32_t tTask30Env[1024/4];
 
 
 void task0(void *param);
@@ -45,7 +43,7 @@ void task30(void *param);
 
 
 
-int UserTaskInit(void)
+int user_task_init(void)
 {
 	ost_init(&tTask0, task0, (void *)0x00000000, 0, &tTask0Env[1024/4]);
 	ost_init(&tTask1, task1, (void *)0x11111111, 1, &tTask1Env[1024/4]);
@@ -56,7 +54,7 @@ int UserTaskInit(void)
 	ost_init(&tTask6, task6, (void *)0x66666666, 6, &tTask6Env[1024/4]);
 	ost_init(&tTask30, task30, (void *)0x66666666, 30, &tTask30Env[1024/4]);
 
-    SysTickInit();
+    sys_tick_init();
 	ost_startup_init();
 	
 	return 0;
